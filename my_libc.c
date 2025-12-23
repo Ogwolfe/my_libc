@@ -8,8 +8,8 @@ int my_strlen(const char *s){
         return -1;
     }
 
-    //While the pointer is valid, increment length and the pointer until it's NULL
-    while(s){
+    //While the pointer is valid, increment length and the pointer until it points to '\0'
+    while(*s != '\0'){
         len++;
         s++;
     }

@@ -14,3 +14,8 @@ char *my_stpcpy(char *restrict dest, const char *restrict src){
     while((*dest++ = *src++) != '\0');
     return dest;
 }
+
+char *my_strcpy(char *d, const char *s){
+    my_stpcpy(d, s);
+    return d;
+}

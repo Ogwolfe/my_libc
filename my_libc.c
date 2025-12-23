@@ -40,3 +40,25 @@ void *my_memcpy(void *restrict dest, const void *restrict src, size_t n){
     }
     return dest;
 }
+
+void *my_memmove(void *dest, const void *src, size_t n){
+
+    unsigned char *d = (unsigned char*) dest;
+    const unsigned char *s = (const unsigned char*) src;
+
+    if(dest <= src){
+        for(; n > 0; n--, d++, s++){
+            *d = *s;
+        }
+    }
+    else{
+        d += n - 1;
+        s += n - 1;
+
+        for(; n > 0; n--, d--, s--){
+            *d = *s;
+        }
+    }
+    
+    return dest;
+}

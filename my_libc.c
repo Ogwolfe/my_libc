@@ -23,10 +23,20 @@ char *my_strcpy(char *d, const char *s){
 }
 
 int my_strncmp(const char *str1, const char *str2, size_t len){
-    int diff = 0;
-    while(*str1 != '\0' && len-- > 0){
-        if((diff = (*str1++ - *str2++)) != 0) return diff;
+    while(len > 0 && *str1 == *str2 && *str1 != '\0'){
+        len--;
+        str1++;
+        str2++;
     }
+    if(len == 0) return 0;
+    return (*str1 - *str2);
+}
 
-    return diff;
+void *my_memcpy(void *restrict dest, const void *restrict src, size_t n){
+    unsigned char *d = (unsigned char*) dest;
+    const unsigned char *s = (const unsigned char*) src;
+    for(; n > 0; n--, d++, s++){
+        *d = *s;
+    }
+    return dest;
 }

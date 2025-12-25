@@ -3,13 +3,14 @@
 
 #include <stddef.h>
 
-typedef struct Header{
+typedef struct Block{
     unsigned int is_free;
     size_t len;
-    struct Header *next;
-} Header;
+    struct Block *next;
+} Block;
 
 void *my_malloc(size_t size);
+Block *search_free_blocks(size_t size);
 
 
 #endif
